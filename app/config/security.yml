@@ -1,0 +1,23 @@
+security:
+    encoders:
+        UserBundle\Entity\User:
+            algorithm: bcrypt
+    providers:
+        main:
+            entity:
+                class: UserBundle\Entity\User
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            http_basic: ~
+            provider: main
+            form_login:
+                login_path: /login
+                check_path: /login
+            logout:
+                path: /logout

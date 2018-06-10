@@ -1,0 +1,21 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+
+                {% for user in users %}
+                <div class="user-preview">
+                    <h2 class="user-preview">
+                        <a href="{{ path('get_user', {'id': user.id }) }}"> {{ user.id }}</a> |
+                        <a href="{{ path('get_user_name', {'name': user.username }) }}">{{ user.username }}<a>
+                    </h2>
+                 </div>
+                <hr>
+                 {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
